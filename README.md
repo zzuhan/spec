@@ -3,7 +3,9 @@
 
 ## 符合标准的代码
 
-1. 必须以分号结尾(有例外)
+1. 一个代码段的结束必须以分号结尾
+
+	注: for循环，if条件等大括号外无需分号
 
 2. 避免额外的逗号
 
@@ -63,6 +65,7 @@
 		
 	}
 	```
+	注: 我们项目中的一般为Model，View，Collection 等
 
 3. 常量名全大写 中间用'_'下划线隔开
 
@@ -133,39 +136,6 @@ action
 	// 字符串连接 内容对齐
 	var longString = "Here's the story, of man " +
 					 "nam Brandy";
-	```
-
-5. 空行的使用，应该向写文章一样段落化，一个段落一个小功能，不过这个因人而异，也许上下对齐的更适合你
-
-	```javascript
-	if (wl && wl.length) {
-
-		for (var i = 0, l = wl.length; i < l ; i++) {
-			p = wl[i];
-			type = Y.lang.type( r[p] );
-
-			if (s.hasOwnProperty(p)) {
-
-				if (merge && type == 'object') {
-					Y.mix( r[p], s[p] );
-				} else if (ov || !(p in r)) {
-					r[p] = s[p];
-				}
-			}
-		}
-	}
-	```
-
-6. switch 每个case之间一个空行
-
-	```javascript
-	case 1:
-		// do something
-		break;  
-	
-	case 2:
-		// do something
-		break;
 	```
 
 **希望作为引子**
