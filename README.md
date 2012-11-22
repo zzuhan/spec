@@ -14,7 +14,14 @@
 	var arr = [1,2]; // 对
 	```
 
-3. 这是第三个项目
+3. 为内置构造函数，添加原型时，要进行判断，防止混乱  
+	```javascript
+	if (typeof Object.property.myMethod !== 'function') {
+		Object.prototype.myMethod = function(){
+			...
+		};
+	}
+	```
 
 4. for in 循环 必须使用hasOwnProperty 检测，避免来自原型链的污染
 
@@ -74,6 +81,8 @@
 	```
 
 4. 动名词规范,避免歧义  
+	
+	这个推敲下统一使用
 
 	**变量名 名词**
 	<table>
@@ -81,10 +90,10 @@
 	    <th>ID</th><th>类型</th><th>示例</th>
 	  </tr>
 	  <tr>
-	    <td>1</td><td>状态</td><td>animated,changed</td>
+	    <td>1</td><td>状态</td><td>animated，changed</td>
 	  </tr>
 	  <tr>
-	    <td>2</td><td>迭代</td><td>item,index</td>
+	    <td>2</td><td>迭代</td><td>item，index，el</td>
 	  </tr>
 	</table>
 	**函数名 动词**
@@ -137,6 +146,22 @@ action
 	var longString = "Here's the story, of man " +
 					 "nam Brandy";
 	```
+
+5. switch 模式  
+	
+	var inspect_me = 0,
+		result = '';
+	switch (inspect_me) {
+		case 0:
+			result = 'zero';
+			break;
+		case 1:
+			result = 'one';
+			break;
+		default: 
+			result = 'unkonw';
+	}
+
 
 **希望作为引子**
 * 常用判断简写，判断优化
