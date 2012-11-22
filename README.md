@@ -10,7 +10,7 @@
 2. 避免额外的逗号
 
 	```javascript
-	var arr = [1,2,]; // 错
+	var arr = [1,2,]; // deprecated
 	var arr = [1,2]; // 对
 	```
 
@@ -60,6 +60,11 @@
 	var elemStyle = element.style;
 	```
 
+10. 出现回调函数
+
+	我们App中经常会出现回调函数，为防止出错，用self代替想要使用的this
+
+
 ## 命名
 
 1. 驼峰命名法(Camel Case)
@@ -87,30 +92,98 @@
 	**变量名 名词**
 	<table>
 	  <tr>
-	    <th>ID</th><th>类型</th><th>示例</th>
+	    <th>类型</th><th>示例</th>
 	  </tr>
 	  <tr>
-	    <td>1</td><td>状态</td><td>animated，changed</td>
+	    <td>状态</td><td>animated，changed</td>
 	  </tr>
 	  <tr>
-	    <td>2</td><td>迭代</td><td>item，index，el</td>
+	    <td>迭代</td><td>item，index，el</td>
 	  </tr>
+	  <tr>
+	    <td>引用自身</td><td>self</td>
+	  </tr>
+  
 	</table>
 	**函数名 动词**
 	<table>
 	  <tr>
-	    <th>ID</th><th>类型</th><th>示例</th>
+	    <th>类型</th><th>示例</th>
 	  </tr>
 	  <tr>
-	    <td>1</td><td>设置，读取</td><td>setData,getData</td>
+	    <td>设置，读取</td><td>setData,getData</td>
 	  </tr>
 	  <tr>
-	    <td>2</td><td>判断前缀</td><td>options,attrs,params,value(val),obj</td>
+	    <td>判断前缀</td><td>options,attrs,params,value(val),obj</td>
+	  </tr>
+	  <tr>
+	  	<td>取消前缀</td><td>dismiss</td>
+	  </tr>
+	</table>
+	** 常用命名 约定**
+	<table>
+	  <tr>
+	    <th>类型</th><th>示例</th>
+	  </tr>
+	  <tr>
+	    <td>对话框</td><td>dialog</td>
+	  </tr>
+	  <tr>
+	    <td>遮盖物</td><td>overlay</td>
+	  </tr>
+ 	  <tr>
+	    <td>遮罩</td><td>mask</td>
 	  </tr>
 	</table>
 
+	需要推敲的部分
+
+	**PS**: 
+	1. 如果是要指定某一部分改变，用 部分名+changed 来表示，如headChanged，syncChanged 还是用sync_changed 好  
+
+	2. 事件处理函数命名(事件相应函数): 变化部分 + 动作 如:inputFocus 1，2 都属于事件处理的部分  
+	如果是执行某一动作然后触发 toggleToEnablepost 执行这一动作达到什么目的？
+	'click #taked-photo': 'photoMenu' 是showPhotoMenu更好？
+	togglePostEnabled ，或者仅仅是enablePost()
+
+	3.   形参命名 传数据用？attributes,  选项类的? options，一个对象？obj，还是能代表对象类型的，train
+	值类型的 val, value
+
+	4. disableDefaultUI, enableDefaultUI 某些按钮的开启是否可以用这种命名,isPost->enablePost
+
+	5. mode ? (1，2，3，4) 一个功能多种效果？
+
+	6. 迭代用哪一种 item
+
+	7. 字符串型 str, msg(消息)
+
+	8. 模板，tmpl, 如果指定某一特定的模板 userTmpl
+
+	9. 某一个模块 PrivacyWidget 还是 PrivacyView
+
+	**PS**: 函数及流程方面
+
+	1. 对于常用的流程 init->fetchData->render
+
+		解耦？fetchData中对数据做处理否？
+
+	**PS**: 如何写一个模块  
+
+	以前App.Views.Default = Backbone.View.extend();
+
+	优化: 
+	```javascript
+	var DefaultView = Backbone.View.extend({});
+	return DefaultView;
+
+	return Backbone.View.extend({
+
+	});
+	```
+
+
 5. 约定俗称
-action
+action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
 
 ## 代码格式化
 1. tab还是空格  
@@ -122,6 +195,7 @@ action
 	* 对一个函数或者一段代码的注释写上面 用
 	* 对一行代码 中某个变量注释 写右边
 	注 尽可能用变量名，函数名能代表你的意图，而用注释来说明你代码为何这样写，是要处理什么问题
+
 
 3. 多个var声明 下一行用tab隔开，非赋值写第一行，赋值的都统一写一行
 
@@ -162,6 +236,9 @@ action
 			result = 'unkonw';
 	}
 
+	**PS:** 还是case对齐 switch
+
+6. 模块书写格式
 
 **希望作为引子**
 * 常用判断简写，判断优化
