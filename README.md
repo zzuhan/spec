@@ -119,8 +119,14 @@
 	  <tr>
 	  	<td>取消前缀</td><td>dismiss</td>
 	  </tr>
+	  <tr>
+	  	<td>开启</td><td>enable</td>
+	  </tr>
+	  <tr>
+	  	<td>关闭</td><td>disable</td>
+	  </tr>
 	</table>
-	** 常用命名 约定**
+	**常用命名 约定**
 	<table>
 	  <tr>
 	    <th>类型</th><th>示例</th>
@@ -135,55 +141,21 @@
 	    <td>遮罩</td><td>mask</td>
 	  </tr>
 	</table>
-
-	需要推敲的部分
-
-	**PS**: 
-	1. 如果是要指定某一部分改变，用 部分名+changed 来表示，如headChanged，syncChanged 还是用sync_changed 好  
-
-	2. 事件处理函数命名(事件相应函数): 变化部分 + 动作 如:inputFocus 1，2 都属于事件处理的部分  
-	如果是执行某一动作然后触发 toggleToEnablepost 执行这一动作达到什么目的？
-	'click #taked-photo': 'photoMenu' 是showPhotoMenu更好？
-	togglePostEnabled ，或者仅仅是enablePost()
-
-	3.   形参命名 传数据用？attributes,  选项类的? options，一个对象？obj，还是能代表对象类型的，train
-	值类型的 val, value
-
-	4. disableDefaultUI, enableDefaultUI 某些按钮的开启是否可以用这种命名,isPost->enablePost
-
-	5. mode ? (1，2，3，4) 一个功能多种效果？
-
-	6. 迭代用哪一种 item
-
-	7. 字符串型 str, msg(消息)
-
-	8. 模板，tmpl, 如果指定某一特定的模板 userTmpl
-
-	9. 某一个模块 PrivacyWidget 还是 PrivacyView
-
-	**PS**: 函数及流程方面
-
-	1. 对于常用的流程 init->fetchData->render
-
-		解耦？fetchData中对数据做处理否？
-
-	**PS**: 如何写一个模块  
-
-	以前App.Views.Default = Backbone.View.extend();
-
-	优化: 
-	```javascript
-	var DefaultView = Backbone.View.extend({});
-	return DefaultView;
-
-	return Backbone.View.extend({
-
-	});
-	```
-
-
+	
 5. 约定俗称
 action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
+
+* 状态改变: 块名+changed 如:syncChanged
+* 事件响应函数: enableButton，函数名仅来代表函数要执行的操作  
+	特例：togglePostState 即点击会根据情况做不同操作  
+  	函数名最好能代表要进行的操作 showPhotoMenu	
+* 形参 attributes 或 options  
+  当要传递的某一个数据的一些属性时 ->attributes  
+  当要传递**设置** 时 ->options
+* View or Widget  
+	可复用性的View用Widget后缀  
+	单次用的View用View后缀
+
 
 ## 代码格式化
 1. tab还是空格  
@@ -221,24 +193,49 @@ action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
 					 "nam Brandy";
 	```
 
-5. switch 模式  
-	
+5. switch 模式  switch，case 对齐
+	```javascript
 	var inspect_me = 0,
 		result = '';
 	switch (inspect_me) {
-		case 0:
-			result = 'zero';
-			break;
-		case 1:
-			result = 'one';
-			break;
-		default: 
-			result = 'unkonw';
+	case 0:
+		result = 'zero';
+		break;
+	case 1:
+		result = 'one';
+		break;
+	default: 
+		result = 'unkonw';
 	}
-
-	**PS:** 还是case对齐 switch
+	```
+	
 
 6. 模块书写格式
+
+	```javascript
+	// 代码较多，可能包含一些小函数
+	var DefaultView = Backbone.View.extend({
+		...
+	});
+	return DefaultView;
+
+	// 代码短小的情况下
+	return Backbone.View.extend({
+
+	});
+	```
+
+7. 执行流程 render
+	
+	```javascript
+	// 任务交给fetchData执行
+	render: function(){
+		this.fetchData();
+		return this;
+	}
+	```
+
+注: 6,7 可以独立出来，作为专有的 项目代码 格式
 
 **希望作为引子**
 * 常用判断简写，判断优化
