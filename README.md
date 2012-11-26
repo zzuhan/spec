@@ -227,13 +227,36 @@ action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
 
 7. 执行流程 render
 	
+
 	```javascript
 	// 任务交给fetchData执行
 	render: function(){
 		this.fetchData();
 		return this;
+	},
+
+	fetchData: function() {
+		var self = this;
+		App.Helpers.api(this.api.url, this.api.data, function(r){
+			handleData(r);
+		});
+
+		function handleData(results) {
+			self.collection.add(results.likes);
+            if (self.api.data.page == 1) {
+                Crab.setTitle({
+                    title: String(results.total)
+                });
+            };
+            if(results.has_more) {
+                self.$el.append(self.loadMoreWidget.render().el);
+            } else {
+                self.loadMoreWidget.destroy();
+            }
+		}
 	}
 	```
+
 
 注: 6,7 可以独立出来，作为专有的 项目代码 格式
 
