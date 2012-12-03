@@ -18,7 +18,7 @@
 	```javascript
 	if (typeof Object.property.myMethod !== 'function') {
 		Object.prototype.myMethod = function(){
-			...
+			// do something
 		};
 	}
 	```
@@ -38,7 +38,7 @@
 	```javascript
 	function getData(value){
 		var result;		
-		...
+		// do something
 		return result;
 	}
 	```
@@ -74,7 +74,7 @@
 
 	```javascript
 	function Dialog(){
-		
+		// do something
 	}
 	```
 	注: 我们项目中的一般为Model，View，Collection 等
@@ -114,7 +114,7 @@
 	    <td>设置，读取</td><td>setData,getData</td>
 	  </tr>
 	  <tr>
-	    <td>判断前缀</td><td>options,attrs,params,value(val),obj</td>
+	    <td>判断前缀</td><td>can,is,has</td>
 	  </tr>
 	  <tr>
 	  	<td>取消前缀</td><td>dismiss</td>
@@ -143,7 +143,7 @@
 	</table>
 	
 5. 约定俗称
-action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
+常用: action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build
 
 * 状态改变: 块名+changed 如:syncChanged
 * 事件响应函数: enableButton，函数名仅来代表函数要执行的操作  
@@ -213,7 +213,7 @@ action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
 6. 模块书写格式
 
 	```javascript
-	// 代码较多，可能包含一些小函数
+	// 代码较多，文件中可能包含一帮助函数
 	var DefaultView = Backbone.View.extend({
 		...
 	});
@@ -227,7 +227,6 @@ action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
 
 7. 执行流程 render
 	
-
 	```javascript
 	// 任务交给fetchData执行
 	render: function(){
@@ -238,7 +237,7 @@ action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
 	fetchData: function() {
 		var self = this;
 		App.Helpers.api(this.api.url, this.api.data, function(r){
-			handleData(r);
+			handleData(r); // 若handleData 代码量较少，可以不提
 		});
 
 		function handleData(results) {
@@ -265,6 +264,9 @@ action，dismiss(取消)，addOne, addAll，loadMore，tmpl，build(哪里用)
 * 经常出现的问题，可以作为一个FAQ库，供查询
 * 常见问题的解决方案，即模式
 
+
+** 项目待解决 **
+* 复用问题，如何优雅的实现，并且非常容易找 模块的复用，代码的复用
 <!-- 
     var Schema = mongoose.Schema
       , ObjectId = Schema.ObjectId;
