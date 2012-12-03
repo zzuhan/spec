@@ -267,26 +267,3 @@
 
 ** 项目待解决 **
 * 复用问题，如何优雅的实现，并且非常容易找 模块的复用，代码的复用
-<!-- 
-    var Schema = mongoose.Schema
-      , ObjectId = Schema.ObjectId;
-
-    var BlogPost = new Schema({
-        author    : ObjectId
-      , title     : String
-      , body      : String
-      , date      : Date
-    });
-
-```javascript
-case 1:
-	// do something
-	break;  
-
-case 2:
-	// do something
-	break;
-``` 
-
-
--->
