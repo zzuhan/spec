@@ -39,6 +39,10 @@
 
 **深入篇**
 
+
+**patterns**
+[JavaScript Patterns Collection](http://shichuan.github.com/javascript-patterns/)
+
 **命名空间**
 [http://michaux.ca/articles/javascript-namespacing](http://michaux.ca/articles/javascript-namespacing)
 
