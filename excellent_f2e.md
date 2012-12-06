@@ -31,20 +31,20 @@
 ## 一些网址
 
 **继承**  
-[simple-javascript-inheritance](http://ejohn.org/blog/simple-javascript-inheritance/) JQuery作者 John Resig 经典类继承　　
-[Classical Inheritance in JavaScript](http://www.crockford.com/javascript/inheritance.html) Douglas Crockford 经典继承 　　
-[Prototypal Inheritance in JavaScript](http://javascript.crockford.com/prototypal.html) Douglas Crockford 原型继承　　
-[Private Members in JavaScript](http://javascript.crockford.com/private.html) Douglas Crockford 私有成员　　
-[JAVASCRIPT INHERITANCE VIA PROTOTYPES AND CLOSURES](http://www.ruzee.com/blog/2008/12/javascript-inheritance-via-prototypes-and-closures) Steffn Rusitschka　　
+[simple-javascript-inheritance](http://ejohn.org/blog/simple-javascript-inheritance/) JQuery作者 John Resig 经典类继承  
+[Classical Inheritance in JavaScript](http://www.crockford.com/javascript/inheritance.html) Douglas Crockford 经典继承   　　
+[Prototypal Inheritance in JavaScript](http://javascript.crockford.com/prototypal.html) Douglas Crockford 原型继承  　　
+[Private Members in JavaScript](http://javascript.crockford.com/private.html) Douglas Crockford 私有成员  　　
+[JAVASCRIPT INHERITANCE VIA PROTOTYPES AND CLOSURES](http://www.ruzee.com/blog/2008/12/javascript-inheritance-via-prototypes-and-closures) Steffn Rusitschka  　　
 
 **深入篇**
 
 
 **patterns**
-[JavaScript Patterns Collection](http://shichuan.github.com/javascript-patterns/)
+[JavaScript Patterns Collection](http://shichuan.github.com/javascript-patterns/)  
 
 **命名空间**
-[http://michaux.ca/articles/javascript-namespacing](http://michaux.ca/articles/javascript-namespacing)
+[http://michaux.ca/articles/javascript-namespacing](http://michaux.ca/articles/javascript-namespacing)  
 
 不关注自己程序性能的程序员不是好程序员！
 
