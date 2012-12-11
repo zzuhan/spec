@@ -8,4 +8,7 @@ jQuery篇
 1. 使用selector时 加入context
 	$('li' ,'#lists').eq(0);
 
-2. 
+2. 事件添加 delegate > live > bind(on)
+
+3. 标准特性优于非标准特性（如果类库有提供，优先使用类库中的函数)
+	这个需要补充
